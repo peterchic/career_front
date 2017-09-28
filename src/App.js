@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+import CareerContainer from './containers/CareerContainer'
 
-export default App;
+export default () => {
+  return (
+    <div>
+      <Switch>
+        <Route path='/' component={CareerContainer} />
+        <Route exact path='/about' render={() => <h1>This is my about page. There are many like it, but this one is mine.</h1>}/>
+      </Switch>
+    </div>
+  );
+}
